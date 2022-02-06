@@ -2,15 +2,11 @@ function checkPalindrome(string) {
   let isPalindrome = true;
   let lowerCase;
   let trimmed;
-
-  console.log(string);
-  lowerCase = string.toLowerCase();
-  console.log(lowerCase);
+  
+  lowerCase = string.toLowerCase();  
   trimmed = lowerCase.replace(/[^A-z]/g,"");
-  console.log(trimmed);
 
-  console.log(trimmed.length);
-
+  // declare variable to hold number of characters to compare
   let j;
 
   // compare all characters if the length is even
@@ -19,6 +15,8 @@ function checkPalindrome(string) {
     for (let i=0; i<j; i++){
       if (trimmed[i]!==trimmed[trimmed.length-1-i]){
         isPalindrome = false;
+        console.log(`${trimmed[i]} is different from trimmed[trimmed.length-1-i])`);
+        console.log(`"${string}" is not a palindrome`);
         break;
       } else {
         console.log(`${trimmed[i]} = ${trimmed[trimmed.length-1-i]}`);
@@ -33,14 +31,16 @@ function checkPalindrome(string) {
       if (trimmed[i]!==trimmed[trimmed.length-1-i]){
         isPalindrome = false;
         break;
-      } else {
-        console.log(`${trimmed[i]} = ${trimmed[trimmed.length-1-i]}`);
-      }
+      } 
     }
+  }
+
+  if(isPalindrome == true){
+    console.log(`"${string}" is a palindrome!`);
   }
 
 }
 
-let toCheck = 'Salas';
+let toCheck = 'Arepera!!!?';
 
 checkPalindrome(toCheck);
